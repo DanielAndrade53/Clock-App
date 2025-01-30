@@ -1,0 +1,411 @@
+:root {
+    --primary-bg-color: blue;
+    --phone-color: rgb(80,80,80);
+    --phone-color-50 : rgba(80,80,80, 0.5);
+    --shadow-color-80: rgba(0,0,0,.8);
+    --shadow-camera-container: rgb(128,128,128);
+    --camera-bg: rgb(0,0,60);
+    --button-bg-80: rgba(0, 0, 0, 0.8);
+    --flash-bg: white;
+    --other-bg: black;
+    --screen-bg-70: rgba(0, 20, 100, 0.7);
+    --screen-gradient: linear-gradient(180deg, rgba(255, 0, 237, 1) 0%, rgba(35, 46, 85, 1) 50%, rgba(64, 15, 116, 1) 70%);
+}
+
+.scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background:transparent;
+    position: absolute;
+    top: 0%; 
+    padding-left: 6%;
+    left: 0%; 
+}
+
+.phone-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    position: relative;
+}
+
+.back-phone {
+    position: absolute; 
+    width: 300px;
+    height: 600px;
+    background: var(--phone-color);
+    z-index: 1; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-120%); 
+    border-radius: 40px;
+    box-shadow: 1px 1px 1px 4px var(--shadow-color-80);
+    animation: backPhoneAppear 2s ease-in-out forwards 1s;
+    visibility: hidden; 
+}
+
+.cameras-container {
+    width: 140px;
+    height: 140px;
+    transform: translateX(10%) translateY(10%); 
+    border-radius: 30px;
+    background: rgba(0, 0, 0, .7);
+    box-shadow: 0px 0px 1px 5px var(--shadow-camera-container);
+}
+
+.main-camera {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; 
+    background: var(--phone-color-50);
+    position: relative;
+    transform: translate(10%, 120%);
+    box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);
+}
+
+.main-camera::after {
+    content: '';
+    position: absolute; 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    background: radial-gradient(circle, rgba(22, 4, 69, 0.3) 0%, transparent), radial-gradient(circle, #232b72 30%, transparent 100%); 
+}
+
+.telefoto {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; 
+    background: var(--phone-color-50);
+    position: relative;
+    transform: translate(10%, -90%);
+    box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);
+}
+
+.telefoto::after {
+    content: '';
+    position: absolute; 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); 
+    background: radial-gradient(circle, rgba(22, 4, 69, 0.3) 0%, transparent), radial-gradient(circle, #232b72 30%, transparent 100%);
+}
+
+.ultrawide {   
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; 
+    background: var(--phone-color-50);
+    position: relative;
+    transform: translate(120%, -133.5%);
+    box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);
+}
+
+.ultrawide::after {
+    content: '';
+    position: absolute; 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); 
+    background: radial-gradient(circle, rgba(22, 4, 69, 0.3) 0%, transparent), radial-gradient(circle, #232b72 30%, transparent 100%);
+}
+
+
+.flash {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: var(--flash-bg);
+    transform: translate(360%, -680%);
+    box-shadow: 0px 0px 3px 1px grey;
+    cursor: pointer;
+}
+
+.OTHER {    
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: var(--phone-color-50);
+    transform: translate(360%, -400%);
+}
+
+
+
+.front-phone {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    background: #000;
+    border-radius: 40px;
+    position: relative;
+    animation: frontPhoneAppear 5s ease forwards, shadowAppear 3s forwards;
+    visibility: visible; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+    z-index: 3;
+    margin: auto;
+    
+}
+
+
+.buttons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.buttons .left {
+    position: absolute;
+    top: 80px;
+    left: -8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.buttons .left .button {
+    width: 4px;
+    border-radius: 10px 0px 0px 10px;
+    pointer-events: auto;
+    background: var(--button-bg-80);
+
+    &:nth-child(1) {
+        margin-top: 20px;
+        height: 25px;
+    }
+
+    &:nth-child(2) {
+        height: 50px;
+    }
+
+    &:nth-child(3) {
+        height: 50px;
+    }
+}
+
+.buttons .right {
+    position: absolute;
+    top: 160px;
+    right: -8px;
+}
+
+.buttons .right .button {
+    width: 4px;
+    height: 80px;
+    background: var(--button-bg-80);
+    border-radius: 0px 10px 10px 0px;
+    pointer-events: auto;
+}
+
+.screen-container {
+    position: relative;
+    width: 270px;
+    height: 560px;    
+    border-radius: 38px; /* 30px */
+    /* margin-top: 10px; */
+    /* padding: 10px 10px 15px 10px; */
+    padding: 15px 10px 15px 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../assets/background.png');
+    background-size: cover;
+}
+
+.time {
+    position: relative;
+    align-items: center;
+    font-size: 15pt;
+    bottom: 565px;
+    left: 15px;
+    font-size: 15px;
+    width: 50px;
+    background: transparent;
+}
+
+.battery {
+    position: relative;
+    align-items: center;
+    font-size: 15pt;
+    bottom: 587px;
+    left: 200px;
+    font-size: 15px;
+    width: 50px;
+    background: transparent;
+}
+
+
+.notch-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 30px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notch {
+    width: 100px;
+    top: 5px;
+    height: 30px;
+    background: black;
+    border-radius: 50px 50px 50px 50px;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    transform-origin: top;
+}
+
+.notch .silence-mode {
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50px 50px 50px 50px;
+    box-shadow: 0px 0px 0px 1px var(--phone-color-50);
+    align-items: center;
+    align-content: center;
+    transition: transform 1.0s ease;
+    transform-origin: top;
+}
+
+.notch .silence-mode.active {
+    transform: scale(2.65, 2.7);
+}
+
+.notch:hover{
+    transform: scale(2.65, 2.7);
+    box-shadow: 0px 0px 0px 1px var(--phone-color-50);
+}
+
+.volume-up{
+    width: 20%;
+    height: 120px;
+    border-radius: 20px;
+    transform: translateY(100%);
+    background: linear-gradient(rgba(255, 255, 255, 0.4) 0%, white 40%);
+    animation: reduceWidth 3s forwards;
+}
+
+.volume-down {
+    width: 20%;
+    height: 120px;
+    border-radius: 20px;
+    transform: translateY(100%);
+    background: linear-gradient(rgba(255, 255, 255, 0.4) 90%, white 10%);
+    animation: reduceWidth 3s forwards;
+}
+
+.camera {
+    position: absolute;
+    top: 28px;
+    left: 185px;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, rgba(0,45,255,1) 0%, rgba(0,0,0,1) 50%);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.bar-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    padding: 10px;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 30px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.bar {
+    width: 150px;
+    height: 5px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+
+/* ----------- */
+
+@keyframes backPhoneAppear {
+    0% {
+        visibility: hidden; 
+        opacity: 0;
+        transform: translateX(-50%); 
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-110%);
+    }
+}
+
+
+@keyframes frontPhoneAppear {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05) ;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) ;
+    }
+}
+
+@keyframes shadowAppear {
+    0% {
+        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0); 
+    }
+    100% {
+        box-shadow: 0px 0px 1px 5px rgba(0, 0, 0, 1);
+    }
+}
+
+
+@keyframes reduceWidth {
+    0% {
+        width: 20%;
+    }
+    100% {
+        width: 5%;
+    }
+}
