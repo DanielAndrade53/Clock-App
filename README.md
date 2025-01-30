@@ -6,12 +6,12 @@
 
 1. Clone this repository to your local machine:
    ```
-   git clone https://github.com/DanielAndrade53/Clock-App-Git
+   git clone https://github.com/DanielAndrade53/Clock-App
    ```
 
 2. Navigate to the project directory:
    ```
-   cd Clock-App-Git
+   cd Clock-App
    ```
 
 3. Install the required dependencies:
