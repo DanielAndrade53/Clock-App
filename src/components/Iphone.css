@@ -6,7 +6,7 @@
     --shadow-camera-container: rgb(128,128,128);
     --camera-bg: rgb(0,0,60);
     --button-bg-80: rgba(0, 0, 0, 0.8);
-    --flash-bg: white;
+    --flash-bg: linear-gradient(135deg, #fff, #bbd0e3);;
     --other-bg: black;
     --screen-bg-70: rgba(0, 20, 100, 0.7);
     --screen-gradient: linear-gradient(180deg, rgba(255, 0, 237, 1) 0%, rgba(35, 46, 85, 1) 50%, rgba(64, 15, 116, 1) 70%);
@@ -57,62 +57,39 @@
     box-shadow: 0px 0px 1px 5px var(--shadow-camera-container);
 }
 
-.main-camera {
+.main-camera,
+.telefoto,
+.ultrawide {
     width: 60px;
     height: 60px;
     border-radius: 50%; 
     background: var(--phone-color-50);
     position: relative;
-    transform: translate(10%, 120%);
-    box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);
+    /*box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);*/
+
+    box-shadow: 
+    inset 0px -1px 0px 0px #686868,
+    inset 0px -2px 0px 1px #232323,
+    0px 6px 4px #1b1b1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.main-camera::after {
-    content: '';
-    position: absolute; 
-    width: 45px; 
-    height: 45px; 
-    border-radius: 50%;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
-    background: radial-gradient(circle, rgba(22, 4, 69, 0.3) 0%, transparent), radial-gradient(circle, #232b72 30%, transparent 100%); 
+.main-camera {
+    transform: translate(10%, 120%);
 }
 
 .telefoto {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; 
-    background: var(--phone-color-50);
-    position: relative;
     transform: translate(10%, -90%);
-    box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);
-}
-
-.telefoto::after {
-    content: '';
-    position: absolute; 
-    width: 45px; 
-    height: 45px; 
-    border-radius: 50%;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); 
-    background: radial-gradient(circle, rgba(22, 4, 69, 0.3) 0%, transparent), radial-gradient(circle, #232b72 30%, transparent 100%);
 }
 
 .ultrawide {   
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; 
-    background: var(--phone-color-50);
-    position: relative;
     transform: translate(120%, -133.5%);
-    box-shadow: 0px 0px 3px 1px var(--shadow-camera-container);
 }
 
+.main-camera::after ,
+.telefoto::after ,
 .ultrawide::after {
     content: '';
     position: absolute; 
@@ -122,27 +99,76 @@
     top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); 
-    background: radial-gradient(circle, rgba(22, 4, 69, 0.3) 0%, transparent), radial-gradient(circle, #232b72 30%, transparent 100%);
+    background: #010101;
+    box-shadow: 
+        inset 0px 2px 0px 0px #010101,
+        inset 0px 3px 2px 1px #ccd3da,
+        inset 0px 0px 0px 8px #010810,
+        inset 0px 2px 0px 8px #303940,
+        inset 0px -2px 0px 7px #303940
+        ;
 }
 
+.main-camera .lens,
+.telefoto .lens,
+.ultrawide .lens { 
+    position: absolute;
+    z-index: 10;
+    border-radius: 50%;
+    background: linear-gradient(to right, #13bebe, rgb(75, 91, 144) ,rgb(99, 15, 89), #64559e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+}
+
+.main-camera .lens::before,
+.telefoto .lens::before,
+.ultrawide .lens::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 
 .flash {
+    position: absolute;
     width: 25px;
     height: 25px;
     border-radius: 50px;
     background: var(--flash-bg);
     transform: translate(360%, -680%);
-    box-shadow: 0px 0px 3px 1px grey;
     cursor: pointer;
+    box-shadow:
+        inset 0px 0px 0px 2px #b6bfc8,
+        inset 0px 0px 0px 3.5px #aec7d5,
+        inset 0px 0px 0px 5px #eee7e2,
+        0px 0px 2px 2px #788a9a
+    ;
 }
 
-.OTHER {    
+.depth {    
+    position: absolute;
     width: 25px;
     height: 25px;
     border-radius: 50px;
     background: var(--phone-color-50);
-    transform: translate(360%, -400%);
+    transform: translate(360%, -290%);
+    box-shadow: inset 0px 0px 0px 1px black;
+}
+
+.hole {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+    background: var(--phone-color);
+    opacity: 0.3;
+    transform: translate(2500%, -1500%);
+    box-shadow: 0px 0px 0px .5px #486279;
 }
 
 
@@ -233,23 +259,24 @@
     background-size: cover;
 }
 
+
 .time {
-    position: relative;
+    position: absolute;
     align-items: center;
     font-size: 15pt;
-    bottom: 565px;
-    left: 15px;
+    bottom: 560px;
+    left: 25px;
     font-size: 15px;
     width: 50px;
     background: transparent;
 }
 
 .battery {
-    position: relative;
+    position: absolute;
     align-items: center;
     font-size: 15pt;
-    bottom: 587px;
-    left: 200px;
+    bottom: 560px;
+    right: 25px;
     font-size: 15px;
     width: 50px;
     background: transparent;

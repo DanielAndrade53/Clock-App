@@ -76,11 +76,18 @@ const Iphone = () => {
 
             <div className='back-phone'>
                 <div className='cameras-container'>
-                    <div className='main-camera'></div>
-                    <div className='telefoto'></div>
-                    <div className='ultrawide'></div>
+                    <div className='main-camera'>
+                        <div className='lens' />
+                    </div>
+                    <div className='telefoto'>
+                        <div className='lens' />
+                    </div>
+                    <div className='ultrawide'>
+                        <div className='lens' />
+                    </div>
                     <div className='flash'></div>
-                    <div className='OTHER'></div>
+                    <div className='depth'></div>
+                    <div className='hole'></div>
                 </div>
             </div>
 
