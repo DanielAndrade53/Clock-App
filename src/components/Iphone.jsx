@@ -65,6 +65,12 @@ const Iphone = () => {
       }
     };
 
+    const [flashOn, setFlashOn] = useState(false);
+
+    const toggleFlash = () => {
+        setFlashOn(prevState => !prevState);
+    };
+
 
     return (
     <div className='scene'>
@@ -85,7 +91,14 @@ const Iphone = () => {
                     <div className='ultrawide'>
                         <div className='lens' />
                     </div>
-                    <div className='flash'></div>
+                    <div className='flash' onClick={toggleFlash}>
+                        {flashOn ? 
+                            (
+                                <div className='flash-on' />
+                            ) : (
+                                <div className='flash-off'/>
+                            )}
+                    </div>
                     <div className='depth'></div>
                     <div className='hole'></div>
                 </div>

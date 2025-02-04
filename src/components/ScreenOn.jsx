@@ -19,7 +19,7 @@ const ScreenOn = () => {
             {activeApp === 'clock' ? (
                 <div className="full-screen-app">
                     <ClockApp />
-                    <div className='bar' onClick={closeApp}></div>
+                    <div className='bar-on' onClick={closeApp}></div>
                 </div>
             ) : (
                 <div className='apps-container'>
