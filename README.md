@@ -1,8 +1,33 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠 Built With
 
-Currently, two official plugins are available:
+### Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white&style=for-the-badge)
+
+## ⚙️ Installation
+
+### Let's get you set up!
+
+1. Clone this repository
+   ```
+   https://github.com/DanielAndrade53/Clock-App
+   ```
+2. Install the required dependencies using NPM
+   ```
+   npm install
+   ```
+3. Start the development server
+   ```
+   npm run dev
+   ```
+</div>
+
+🎉 All set, you're ready to go!
+</div>
+
+### 🤳 Usage
+
+To view the website locally, open your web browser and navigate to http://localhost:5173
