@@ -1,4 +1,4 @@
-import './ClockApp.css'; 
+import '../styles/ClockApp.css'
 
 const ClockApp = () => {
 

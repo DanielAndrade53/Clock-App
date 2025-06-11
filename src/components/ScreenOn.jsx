@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './ScreenOn.css';
+import '../styles/ScreenOn.css';
+
 import ClockApp from './ClockApp';
 
 const ScreenOn = () => {

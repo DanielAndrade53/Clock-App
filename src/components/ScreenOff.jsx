@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './ScreenOff.css';
+import '../styles/ScreenOff.css';
 
 const ScreenOff = () => {
 
@@ -8,6 +8,16 @@ const ScreenOff = () => {
     const unlockPhone = () => {
         setUnlock(prevState => !prevState);
     };
+
+    const [time, setTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    
+        useEffect(() => {
+            const timeInterval = setInterval(() => {
+                setTime(new Date().toLocaleTimeString([], {hour : '2-digit', minute : '2-digit'}));
+            }, 1000);
+    
+            return () => clearInterval(timeInterval);
+        }, []);
 
 
     return (
@@ -23,13 +33,13 @@ const ScreenOff = () => {
                 </div>  
                 <div className='day-time-container'>
                     <div className='day'>Tuesday, February 4</div>
-                    <div className='timer'>11:04</div>
+                    <div className='timer'>{time}</div>
                 </div>
             </div>
 
             <div className='bottom-icons'>
                 <div className='icon-flashlight'>
-                    <img src='src/assets/torch.png' alt='' />
+                    <img src='src/assets/torch.png' alt='Torch Icon'/>
                 </div>
                 <div className='icon-camera'>
                     <img src='src/assets/camera.png' alt='' />

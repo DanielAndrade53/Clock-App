@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from 'react';
-import './Iphone.css'; 
+import { React, useEffect, useState } from 'react'
+import '../styles/Iphone.css'
 
 import ScreenOn from './ScreenOn'
 import ScreenOff from './ScreenOff'
@@ -29,40 +29,6 @@ const Iphone = () => {
 
     const phoneStateVar = (state) => {
         setPhoneState(state);
-    };
-
-
-    const handleClick = (buttonNumber) => {
-      setActiveButton(buttonNumber);
-      setTimerActive(true);
-
-      if (buttonNumber === 1) {
-
-        setShowSilenceMode((prev) => !prev);
-
-        console.log(`Pressed ${buttonNumber}`);
-        setTimeout(() => {
-          setShowSilenceMode(false);
-          setTimerActive(false);
-          setActiveButton(null); 
-        }, 1000);
-      }
-
-      else if (buttonNumber === 2) {
-        console.log(`Pressed ${buttonNumber}`);
-        setTimeout(() => {
-            setTimerActive(false)
-            setActiveButton(null); 
-        }, 3000 );
-      }
-
-      else if (buttonNumber === 3) {
-        console.log(`Pressed ${buttonNumber}`);
-        setTimeout(() => {
-            setTimerActive(false)
-            setActiveButton(null); 
-        }, 3000);
-      }
     };
 
     const [flashOn, setFlashOn] = useState(false);
@@ -109,9 +75,9 @@ const Iphone = () => {
                 <div className='buttons'>
                     <div className='left'>
 
-                        <div className='button' onClick={() => handleClick(1)}></div>
-                        <div className='button' onClick={() => handleClick(2)}></div>
-                        <div className='button' onClick={() => handleClick(3)}></div>
+                        <div className='button'></div>
+                        <div className='button'></div>
+                        <div className='button'></div>
                     </div>
 
                     <div className='right'>
