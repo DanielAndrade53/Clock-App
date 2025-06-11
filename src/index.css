@@ -5,8 +5,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: red;
 
+  background: #3F5EFB;
+  background: radial-gradient(circle,rgb(254, 254, 254) 0%, rgba(184, 164, 244, 0.52) 60%, rgba(0, 0, 0, 0.1) 95%);
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
